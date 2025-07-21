@@ -1,0 +1,10 @@
+.gcloudignore
+.git
+.gitignore
+
+# Node.js
+node_modules
+
+# Python
+__pycache__
+virtualenv
