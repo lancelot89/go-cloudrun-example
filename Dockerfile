@@ -1,14 +1,14 @@
 # Use the official Golang image to create a build artifact.
 # This is known as a multi-stage build.
-FROM golang:1.21 as builder
+FROM golang:1.24 AS builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
-# Copy go mod and sum files
-COPY go.mod go.sum ./
+# Copy go mod file
+COPY go.mod ./
 
-# Download all dependencies. Dependencies will be cached if the go.mod and go.sum files are not changed
+# Download all dependencies. Dependencies will be cached if the go.mod file is not changed
 RUN go mod download
 
 # Copy the source code from the current directory to the Working Directory inside the container
