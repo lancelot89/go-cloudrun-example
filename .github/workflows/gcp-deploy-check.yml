@@ -28,10 +28,6 @@ jobs:
       run: |
         docker build -t asia-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/go-cloudrun-example:${{ github.sha }} .
 
-    - name: 'Push Docker image to Artifact Registry'
-      run: |
-        docker push asia-northeast1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/go-cloudrun-example:${{ github.sha }}
-
     - name: 'Dry-run deploy to Cloud Run'
       run: |
         gcloud run deploy go-cloudrun-example \
